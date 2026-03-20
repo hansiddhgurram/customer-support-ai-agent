@@ -1,0 +1,76 @@
+# ========================
+# FRONTEND (React / Vite)
+# ========================
+node_modules/
+dist/
+build/
+.vite/
+*.local
+
+# Env files (frontend + backend)
+.env
+.env.*
+!.env.example
+
+# ========================
+# BACKEND (Python / FastAPI)
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python build files
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+
+# ========================
+# LOGS
+# ========================
+*.log
+
+# ========================
+# OS FILES
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# EDITOR / IDE
+# ========================
+.vscode/
+.idea/
+
+# ========================
+# AI / VECTOR DATABASES
+# ========================
+vector_db/
+chroma/
+faiss_index/
+*.faiss
+
+# ========================
+# TEST / CACHE
+# ========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ========================
+# MISC
+# ========================
+*.sqlite3
