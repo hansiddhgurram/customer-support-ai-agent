@@ -46,7 +46,9 @@ export default function Login() {
                 setError(res.error || "Invalid credentials");
             }
         } catch (err) {
-            setError("Login failed. Please check backend connection.");
+            console.error(err);
+            const msg = err.response?.data?.detail || err.response?.data?.error || "Backend server unreachable. Render free instances take ~30 seconds to wake up on first load. Please retry in a moment.";
+            setError(msg);
         } finally {
             setLoading(false);
         }
@@ -68,7 +70,9 @@ export default function Login() {
                 setError("Google Authentication failed");
             }
         } catch (err) {
-            setError("Google login failed. Backend unreachable.");
+            console.error(err);
+            const msg = err.response?.data?.detail || err.response?.data?.error || "Backend server unreachable. Render free instances take ~30 seconds to wake up on first load. Please retry in a moment.";
+            setError(msg);
         } finally {
             setLoading(false);
         }

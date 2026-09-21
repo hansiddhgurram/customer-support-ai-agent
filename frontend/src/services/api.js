@@ -6,7 +6,8 @@ const baseURL = rawBaseURL.endsWith("/") ? rawBaseURL.slice(0, -1) : rawBaseURL;
 console.log("[SupportAI] Connecting to API Base URL:", baseURL);
 
 const API = axios.create({
-    baseURL: baseURL
+    baseURL: baseURL,
+    timeout: 60000
 });
 
 
