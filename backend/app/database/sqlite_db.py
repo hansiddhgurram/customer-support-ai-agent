@@ -20,10 +20,8 @@ def init_db():
     )
     """)
     
-    # Insert default admin user if not present
-    cursor.execute("SELECT username FROM users WHERE username = ?", ("admin",))
-    if not cursor.fetchone():
-        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", ("admin", "SupportAI#2026!Admin"))
+    # Insert or update default admin user with simple password
+    cursor.execute("INSERT OR REPLACE INTO users (username, password) VALUES (?, ?)", ("admin", "admin123"))
 
     # Analyzed Tickets table (per-user)
     cursor.execute("""

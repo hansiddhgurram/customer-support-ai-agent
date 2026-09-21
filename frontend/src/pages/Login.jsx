@@ -181,10 +181,34 @@ export default function Login() {
                         <ShieldCheck size={14} /> Demo Credentials
                     </p>
                     <p>Username: <span className="text-slate-200 font-semibold">admin</span></p>
-                    <p>Password: <span className="text-slate-200 font-semibold">SupportAI#2026!Admin</span></p>
+                    <p>Password: <span className="text-slate-200 font-semibold">admin123</span></p>
                 </div>
 
-                <div className="mt-6 text-center text-xs text-slate-400">
+                {/* Optional Custom API Endpoint Settor */}
+                <div className="mt-4 pt-4 border-t border-slate-800/80 text-center">
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const current = localStorage.getItem("custom_api_url") || "";
+                            const url = prompt("Enter your live Render backend URL (e.g. https://your-app.onrender.com):", current);
+                            if (url !== null) {
+                                if (url.trim()) {
+                                    localStorage.setItem("custom_api_url", url.trim());
+                                    alert("API URL saved: " + url.trim() + ". Refreshing page...");
+                                } else {
+                                    localStorage.removeItem("custom_api_url");
+                                    alert("Cleared custom API URL.");
+                                }
+                                window.location.reload();
+                            }
+                        }}
+                        className="text-[11px] font-mono text-slate-500 hover:text-cyan-400 transition-colors underline"
+                    >
+                        ⚙️ Configure Render API URL (Fix Connection)
+                    </button>
+                </div>
+
+                <div className="mt-4 text-center text-xs text-slate-400">
                     Don't have an account?{" "}
                     <Link to="/register" className="text-cyan-400 hover:underline font-semibold">
                         Create Account
