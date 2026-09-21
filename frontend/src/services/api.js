@@ -1,8 +1,12 @@
 import axios from "axios";
 
-const API = axios.create({
+const rawBaseURL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+const baseURL = rawBaseURL.endsWith("/") ? rawBaseURL.slice(0, -1) : rawBaseURL;
 
-    baseURL: import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000"
+console.log("[SupportAI] Connecting to API Base URL:", baseURL);
+
+const API = axios.create({
+    baseURL: baseURL
 });
 
 
